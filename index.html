@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Assignment Final</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>CodePen - draft221</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+		<link rel="stylesheet" href="./style.css">
+
+	</head>
+	<body>
+		<!-- partial:index.partial.html -->
+		<html lang='en'>
+
+			<head>
+				<meta charset='utf-8' />
+				<title>Toggle layers</title>
+				<meta name='viewport'
+					content='width=device-width, initial-scale=1, maximum-scale=1, user-scaleable=no ' />
+				<!-- Mapbox JS API !-->
+				<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+				<!-- Mapbox CSS!-->
+				<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+				<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+				<link rel="stylesheet" href="./style.css">
+
+				<script
+					src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'>
+				</script>
+				<link rel='stylesheet'
+					href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
+					type='text/css' />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap" rel="stylesheet">
+			</head>
+
+			<body>
+
+				<nav class="sidebar close">
+					<header>
+						<div class="image-text">
+							<span class="image">
+								<img src="https://i.pinimg.com/564x/c9/5a/c4/c95ac4349661e90ca3faead693cb0229.jpg"
+									alt="">
+							</span>
+							<div class="text logo-text">
+								<span class="name">Zhongming HU</span>
+								<span class="profession">2811447H</span>
+							</div>
+						</div>
+
+						<i class="bx bx-chevron-right toggle"></i>
+					</header>
+					<div class="menu-bar">
+						<div class="menu">
+
+							<ul class="menu-links">
+								<li id="mysearch-box" class="nav-link">
+									<a href="#">
+										<i class="bx bx-search icon"></i>
+										<span class="text nav-text">Search</span>
+									</a>
+								</li>
+
+								<li class="nav-link" onclick="showInstruction()">
+									<a href="#">
+										<i class="bx bx-book icon"></i>
+										<span class="text nav-text">Instruction</span>
+									</a>
+								</li>
+
+								<li id=myfilter1 class="nav-link" onclick="init();cbChange()">
+									<a href="#">
+										<i class='bx bx-filter-alt icon'></i>
+										<span class="text nav-text">Selection</span>
+									</a>
+
+									<div class="dropup-content">
+                    <br>
+										<label>
+											<input class="cb cb1" type="checkbox" name="cb" value="b"
+												onclick="cbChange()" unchecked />
+											<i class="dropbutton"></i>
+											<span class="namespan">Beer</span>
+										</label><br>
+										<label>
+											<input class="cb cb2" type="checkbox" name="cb" value="w"
+												onclick="cbChange()" unchecked />
+											<i class="dropbutton"></i>
+											<span>Wine</span>
+										</label><br>
+										<label>
+											<input class="cb cb3" type="checkbox" name="cb" value="c"
+												onclick="cbChange()" unchecked />
+											<i class="dropbutton"></i>
+											<span>Cocktail</span>
+										</label><br>
+										<label>
+											<input class="cb cb4" type="checkbox" name="cb" value="wi"
+												onclick="cbChange()" unchecked />
+											<i class="dropbutton"></i>
+											<span>Whisky</span>
+										</label><br>
+									
+										<label>
+											<input class="cb cb5" type="checkbox" name="cb" value="s"
+												onclick="cbChange()" unchecked />
+											<i class="dropbutton"></i>
+											<span>Spirits</span>
+										</label><br>
+										<label>
+											<input class="cb cb6" type="checkbox" name="cb" value="food"
+												onclick="cbChange()" unchecked />
+											<i class="dropbutton"></i>
+											<span>Foods</span>
+										</label><br>
+									</div>
+								</li>
+								<li id="Reviews" class="nav-link" onclick="showslide()">
+									<a href="#">
+										<i class='bx bx-star icon'></i>
+										<span class="text nav-text">Reviews</span>
+									</a>
+								</li>
+
+								<li class="nav-link" onclick="Mark_init()">
+									<a href="#">
+										<i class='bx bx-map-pin icon'></i>
+										<span class="text nav-text">Map Pin</span>
+									</a>
+								</li>
+
+								<li class="nav-link">
+									<a href="https://www.tripadvisor.co.uk/Attractions-g186534-Activities-c20-t99-Glasgow_Scotland.html" target="_blank">
+										<i class='bx bx-heart icon'></i>
+										<span class="text nav-text">Recommendations</span>
+									</a>
+								</li>
+
+								
+							</ul>
+						</div>
+						<div class="bottom-content">
+							<li onclick="full()">
+								<a href="#">
+									<i class="bx bx-fullscreen icon"></i>
+									<span class="text nav-text">Full Screen</span>
+								</a>
+							</li>
+							<li class="mode">
+								<div class="sun-moon">
+									<i class="bx bx-moon icon moon"></i>
+									<i class="bx bx-sun icon sun"></i>
+								</div>
+								<span class="mode-text text">Dark Mode</span>
+								<div class="toggle-switch">
+									<span class="switch"></span>
+								</div>
+							</li>
+						</div>
+
+					</div>
+				</nav>
+
+				<section class="home">
+        <div class='maptitle'>Glasgow Bars Map</div>
+          <div class='mapsubtitle'>Find Your Favorite Bar Here</div>
+					<div class="range hide">
+						<div id="slider_value">Reviews Higher Than：3</div>
+            <div id="slider_source">Data Source: Google Map</div><br>
+						<input id='slider' class='row' type='range' min='3' max='5' step='0.1' value='3' onchange="sliderChange()"/>
+						
+					</div>
+					<div id='map'></div>
+          
+				</section>
+       
+				<div class="popbox hide">
+					<div class="title">Instruction <span class="bx bx-message-square-x close" onclick="closepop()"></span></div>
+					<div class="des">
+						This map shows the information of bars in Glasgow city, and the data collected from Google Map and bars' menus.<br><br>
+            This map contains 7 functions：<br><br>
+            1.Mouse over the points on the map will popup the name, clicking will show its specific information;<br><br>
+            2.Clicking on the search button will bring up the search bar;<br><br>
+            3.Hovering the 'selection' button will bring up several checkboxes. The default is unchecked. And if you check one of them， the map will only display the bars offer the corresponding item;<br><br>
+            4.Click the 'reviews' button and a slider bar will pop up in the top left corner of the map. dragging the knob will filter the bars above a certain rating. Clicking other buttons will remove the pop-up. And this function can be used together with function 3；<br><br>
+            5.Clicking the 'map pin' button and then clicking on a location on the map will mark that location. And clicking on the exist marker icon can cancel the marker.<br><br>
+            6.Click on 'full screen' for full screen display on most browsers, exit by pressing 'ESC' on the keyboard or click on the 'full screen' button again.<br><br>
+            7.The map supports 'dark' mode. When switching to 'dark' mode, the interface style and map style will change.
+            
+            
+            
+					</div>
+				</div>
+				
+
+				<script src="./script.js"></script>
+			</body>
+
+		</html>
+		<!-- partial -->
+		<script src="./script.js"></script>
+
+	</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
